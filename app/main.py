@@ -119,12 +119,12 @@ def detect_manipulation() -> Dict[str, Any]:
             )
 
             response = {
-                "manipulated": is_manipulated,
-                "score": round(similarity_score, 4),
-                "message": message,
+                "manipulated": bool(is_manipulated),
+                "score": round(float(similarity_score), 4),
+                "message": str(message),
                 "media_type": original_type,
-                "original_dimensions": original_image.size,
-                "suspect_dimensions": suspect_image.size
+                "original_dimensions": list(original_image.size),
+                "suspect_dimensions": list(suspect_image.size)
             }
 
             logger.info(f"Detection completed: {response}")
