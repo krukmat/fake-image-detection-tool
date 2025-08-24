@@ -87,3 +87,4 @@ You are Claude Code. Please generate the following step by step, following clean
   - Add comments where logic is non-trivial
 
 - always a new feature is added it should run all tests frontend and backend. add the details in the readme and commit and push
+- always a change in frontend or backend code, after tests are run. the readme with the test results should be updated
