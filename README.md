@@ -14,11 +14,14 @@ A complete full-stack application for detecting media manipulation by comparing 
 
 ### Frontend (Express.js)
 - User-friendly web interface for image comparison
-- Real-time image previews
-- Loading states and error handling
-- Responsive design for mobile and desktop
-- Accessibility compliance (ARIA labels, keyboard navigation)
-- Form validation
+- **Real-time image previews** - Live preview of images as URLs are entered
+- **Interactive form validation** - HTML5 and custom validation with visual feedback
+- **Loading states and animations** - Spinner and progress indicators during analysis
+- **Error handling with screenshots** - Detailed error messages for failed operations
+- **Responsive design** - Works seamlessly on mobile, tablet, and desktop
+- **Accessibility compliance** - ARIA labels, keyboard navigation, and screen reader support
+- **Visual feedback system** - Color-coded results (green for safe, orange for suspicious)
+- **Screenshot capture support** - Can analyze screenshots and images from various sources
 
 ## Getting Started
 
@@ -70,6 +73,55 @@ npm run start-frontend
 
 - Backend API: `http://localhost:5001`
 - Frontend UI: `http://localhost:3000`
+
+## Frontend Interface Features
+
+The web interface provides a comprehensive visual experience for media manipulation detection:
+
+### 🖼️ Image Preview System
+- **Live Previews**: Images appear instantly as URLs are entered
+- **Side-by-Side Comparison**: Original and suspect images displayed together
+- **Error Handling**: Broken image URLs are handled gracefully with fallback states
+- **Responsive Images**: Automatic scaling for different screen sizes
+
+### 🎨 Visual Feedback
+- **Loading Animations**: Elegant spinner during analysis with progress messages
+- **Color-Coded Results**: 
+  - 🟢 Green: No manipulation detected (high similarity)
+  - 🟠 Orange: Potential manipulation detected (low similarity)
+  - 🔴 Red: Error states with clear explanations
+- **Status Indicators**: Clear visual cues for different states (loading, success, error)
+
+### 📊 Results Display
+- **Similarity Scores**: Percentage-based similarity metrics with visual representation
+- **Detailed Analysis**: Comprehensive breakdown including:
+  - Manipulation status (Yes/No)
+  - Similarity percentage
+  - Image dimensions comparison
+  - Analysis confidence level
+  - Technical details and reasoning
+
+### 📱 Responsive Design
+- **Mobile-First**: Optimized for smartphones and tablets
+- **Desktop Enhancement**: Full-featured experience on larger screens
+- **Touch-Friendly**: Large buttons and touch targets
+- **Keyboard Navigation**: Full accessibility via keyboard shortcuts
+
+### ♿ Accessibility Features
+- **Screen Reader Support**: Complete ARIA label implementation
+- **High Contrast**: Clear visual hierarchy and contrast ratios
+- **Keyboard Navigation**: Tab through all interactive elements
+- **Focus Indicators**: Clear focus states for all controls
+- **Semantic HTML**: Proper heading structure and form labels
+
+### 📷 Supported Image Formats
+The system can analyze various image formats and sources:
+- **Standard Formats**: JPG, PNG, GIF, WebP, BMP
+- **Screenshots**: Desktop screenshots, mobile screenshots, web captures  
+- **Web Images**: Direct URLs from websites and image hosting services
+- **High Resolution**: Supports images up to 4K resolution
+- **Batch Processing**: Can handle multiple image comparisons
+- **Format Conversion**: Automatic format normalization for comparison
 
 ### Docker Deployment
 
@@ -151,6 +203,8 @@ npm run install-browsers
 - **API Tests**: 11/11 passing (87% coverage)
 - **E2E Tests**: 8/8 passing (UI, integration, accessibility)
 - **Backend Tests**: Python unit tests for utilities and comparison logic
+- **Visual Testing**: Screenshots captured on test failures for debugging
+- **Cross-Browser**: Chromium, Firefox, and WebKit browser testing support
 
 ### Continuous Integration
 
