@@ -74,13 +74,27 @@ npm run start-frontend
 - Backend API: `http://localhost:5001`
 - Frontend UI: `http://localhost:3000`
 
+## Screenshots
+
+### Main Interface
+![Main Interface](screenshots/main-interface.png)
+*Clean, modern interface with gradient background and intuitive form layout*
+
+### Form with Focus States
+![Form Focus](screenshots/form-with-focus.png)
+*Interactive form elements with visual feedback and image preview sections*
+
+### Error Handling
+![Error State](screenshots/error-state.png)
+*Clear error messages with detailed feedback for failed operations*
+
 ## Frontend Interface Features
 
 The web interface provides a comprehensive visual experience for media manipulation detection:
 
-### 🖼️ Image Preview System
-- **Live Previews**: Images appear instantly as URLs are entered
-- **Side-by-Side Comparison**: Original and suspect images displayed together
+### 🖼️ Image Preview System  
+- **Live Previews**: Images appear instantly as URLs are entered (see [Form Focus screenshot](screenshots/form-with-focus.png))
+- **Side-by-Side Comparison**: Original and suspect images displayed together in dedicated preview sections
 - **Error Handling**: Broken image URLs are handled gracefully with fallback states
 - **Responsive Images**: Automatic scaling for different screen sizes
 
@@ -89,8 +103,9 @@ The web interface provides a comprehensive visual experience for media manipulat
 - **Color-Coded Results**: 
   - 🟢 Green: No manipulation detected (high similarity)
   - 🟠 Orange: Potential manipulation detected (low similarity)
-  - 🔴 Red: Error states with clear explanations
+  - 🔴 Red: Error states with clear explanations (see [Error State screenshot](screenshots/error-state.png))
 - **Status Indicators**: Clear visual cues for different states (loading, success, error)
+- **Modern UI Design**: Gradient backgrounds and clean typography as shown in the [Main Interface](screenshots/main-interface.png)
 
 ### 📊 Results Display
 - **Similarity Scores**: Percentage-based similarity metrics with visual representation
