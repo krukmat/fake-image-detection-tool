@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Media Manipulation Detection</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Media Manipulation Detection</h1>
+            <p>Compare two images to detect potential manipulation</p>
+        </header>
+
+        <form id="detectionForm" class="form">
+            <div class="input-group">
+                <label for="originalUrl">Original Image URL:</label>
+                <input 
+                    type="url" 
+                    id="originalUrl" 
+                    name="originalUrl" 
+                    placeholder="https://example.com/original.jpg"
+                    required
+                >
+            </div>
+
+            <div class="input-group">
+                <label for="suspectUrl">Suspect Image URL:</label>
+                <input 
+                    type="url" 
+                    id="suspectUrl" 
+                    name="suspectUrl" 
+                    placeholder="https://example.com/suspect.jpg"
+                    required
+                >
+            </div>
+
+            <button type="submit" id="analyzeBtn" class="analyze-btn">
+                Analyze Images
+            </button>
+        </form>
+
+        <div id="loading" class="loading hidden">
+            <div class="spinner"></div>
+            <p>Analyzing images...</p>
+        </div>
+
+        <div id="results" class="results hidden">
+            <h2>Analysis Results</h2>
+            <div id="resultContent"></div>
+        </div>
+
+        <div id="error" class="error hidden">
+            <h2>Error</h2>
+            <div id="errorContent"></div>
+        </div>
+
+        <div class="preview-section">
+            <div class="image-preview">
+                <h3>Original Image</h3>
+                <img id="originalPreview" class="preview-img hidden" alt="Original image preview">
+            </div>
+            <div class="image-preview">
+                <h3>Suspect Image</h3>
+                <img id="suspectPreview" class="preview-img hidden" alt="Suspect image preview">
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

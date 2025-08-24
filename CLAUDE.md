@@ -85,3 +85,5 @@ You are Claude Code. Please generate the following step by step, following clean
   - Ensure PEP8 compliance
   - Keep modular structure
   - Add comments where logic is non-trivial
+
+- always a new feature is added it should run all tests frontend and backend. add the details in the readme and commit and push

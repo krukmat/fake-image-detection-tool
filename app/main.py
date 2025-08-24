@@ -12,6 +12,10 @@ from PIL import Image
 from io import BytesIO
 import requests.exceptions
 
+import sys
+import os
+sys.path.append(os.path.dirname(os.path.abspath(__file__)))
+
 from utils import download_media, validate_media_data
 from comparison import detect_manipulation as detect_image_manipulation
 
@@ -167,5 +171,7 @@ def method_not_allowed(error) -> Dict[str, str]:
 
 
 if __name__ == '__main__':
+    import os
+    port = int(os.environ.get('PORT', 5001))
     logger.info("Starting Media Manipulation Detection API")
-    app.run(host='0.0.0.0', port=5000, debug=False)
+    app.run(host='0.0.0.0', port=port, debug=False)
