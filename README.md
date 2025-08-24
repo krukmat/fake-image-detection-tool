@@ -1,36 +1,77 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Media Manipulation Detection API
+
+A Flask-based backend service that detects media manipulation by comparing original and suspect images or videos using computer vision techniques.
+
+## Features
+
+- REST API endpoint for media manipulation detection
+- Support for both images and videos
+- Image comparison using SSIM (Structural Similarity Index)
+- Video frame extraction and analysis
+- Comprehensive error handling and validation
+- Docker support for easy deployment
 
 ## Getting Started
 
-First, run the development server:
+### Prerequisites
+
+- Python 3.11+
+- pip
+
+### Installation
+
+1. Clone the repository
+2. Create a virtual environment:
+   ```bash
+   python -m venv venv
+   source venv/bin/activate  # On Windows: venv\Scripts\activate
+   ```
+
+3. Install dependencies:
+   ```bash
+   pip install -r requirements.txt
+   ```
+
+### Running the Application
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+python app/main.py
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+The API will be available at `http://localhost:5000`
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+### Docker Deployment
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+```bash
+docker build -t media-detection-api .
+docker run -p 5000:5000 media-detection-api
+```
 
-## Learn More
+## API Usage
 
-To learn more about Next.js, take a look at the following resources:
+### POST /detect
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+Compare two media files for manipulation detection.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+**Request Body:**
+```json
+{
+  "url_original": "https://example.com/original.jpg",
+  "url_suspect": "https://example.com/suspect.jpg"
+}
+```
 
-## Deploy on Vercel
+**Response:**
+```json
+{
+  "manipulated": true,
+  "score": 0.85,
+  "message": "Media appears to be manipulated"
+}
+```
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## Testing
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+```bash
+pytest tests/
+```
