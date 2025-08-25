@@ -86,7 +86,9 @@ npm run start-frontend
 > 
 > *Video will be recorded and embedded once laptop is available*
 
-For now, you can view the [HTML version of this README](README.html) which includes a formatted video section.
+For now, you can view the HTML version of this README with rich formatting:
+- **[📄 View HTML README](https://htmlpreview.github.io/?https://github.com/krukmat/fake-image-detection-tool/blob/main/README.html)** (Formatted with video section)
+- **[📁 Raw HTML file](README.html)** (Source code view)
 
 ## Screenshots
 
