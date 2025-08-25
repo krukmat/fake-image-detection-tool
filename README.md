@@ -74,6 +74,20 @@ npm run start-frontend
 - Backend API: `http://localhost:5001`
 - Frontend UI: `http://localhost:3000`
 
+## Usage Demo
+
+### 🎬 Video Tutorial
+> **📹 Coming Soon**: A comprehensive usage video will be added here demonstrating:
+> - Application startup and setup
+> - Adding image URLs for comparison
+> - Real-time image preview functionality
+> - Analysis results and error handling
+> - Mobile responsive design features
+> 
+> *Video will be recorded and embedded once laptop is available*
+
+For now, you can view the [HTML version of this README](README.html) which includes a formatted video section.
+
 ## Screenshots
 
 ### Main Interface
