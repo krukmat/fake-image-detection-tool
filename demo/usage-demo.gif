@@ -1,0 +1,21 @@
+# GIF Placeholder
+
+This file will contain the animated GIF demo once created.
+
+## Creating the GIF:
+
+1. Open `animation-demo.html` in a browser
+2. Use screen recording to capture 9-12 seconds (3 full cycles)
+3. Convert to GIF using online tools like:
+   - ezgif.com
+   - giphy.com
+   - or local tools like FFmpeg
+
+## GIF Specifications:
+- Duration: 9-12 seconds (3 cycles of screenshots)
+- Size: 800x600 pixels
+- Frame rate: 10-15 fps
+- File size: Keep under 10MB for GitHub
+
+## Alternative:
+For now, we'll use the HTML animation as a demo until a proper GIF is created.

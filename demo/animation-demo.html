@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Media Manipulation Detection - Demo Animation</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 20px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+        
+        .demo-container {
+            width: 800px;
+            height: 600px;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+            overflow: hidden;
+            position: relative;
+        }
+        
+        .screenshot {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            opacity: 0;
+            transition: opacity 1s ease-in-out;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .screenshot.active {
+            opacity: 1;
+        }
+        
+        .screenshot img {
+            max-width: 90%;
+            max-height: 80%;
+            border-radius: 8px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+        
+        .caption {
+            margin-top: 20px;
+            padding: 10px 20px;
+            background: rgba(0,0,0,0.8);
+            color: white;
+            border-radius: 20px;
+            font-size: 16px;
+            text-align: center;
+        }
+        
+        .step-indicator {
+            position: absolute;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 8px;
+        }
+        
+        .dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: rgba(255,255,255,0.4);
+            transition: background 0.3s ease;
+        }
+        
+        .dot.active {
+            background: white;
+        }
+        
+        .progress-bar {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            height: 4px;
+            background: #3498db;
+            transition: width 3s linear;
+        }
+    </style>
+</head>
+<body>
+    <div class="demo-container">
+        <!-- Step 1: Main Interface -->
+        <div class="screenshot active" data-step="1">
+            <img src="../screenshots/main-interface.png" alt="Main Interface">
+            <div class="caption">
+                Step 1: Clean, modern interface with gradient background
+            </div>
+        </div>
+        
+        <!-- Step 2: Form with Focus -->
+        <div class="screenshot" data-step="2">
+            <img src="../screenshots/form-with-focus.png" alt="Form Focus">
+            <div class="caption">
+                Step 2: Interactive form with image preview sections
+            </div>
+        </div>
+        
+        <!-- Step 3: Error State -->
+        <div class="screenshot" data-step="3">
+            <img src="../screenshots/error-state.png" alt="Error State">
+            <div class="caption">
+                Step 3: Clear error handling with detailed feedback
+            </div>
+        </div>
+        
+        <!-- Step indicators -->
+        <div class="step-indicator">
+            <div class="dot active"></div>
+            <div class="dot"></div>
+            <div class="dot"></div>
+        </div>
+        
+        <!-- Progress bar -->
+        <div class="progress-bar"></div>
+    </div>
+
+    <script>
+        const screenshots = document.querySelectorAll('.screenshot');
+        const dots = document.querySelectorAll('.dot');
+        const progressBar = document.querySelector('.progress-bar');
+        let currentStep = 0;
+        const totalSteps = screenshots.length;
+        const stepDuration = 3000; // 3 seconds per step
+        
+        function showStep(step) {
+            // Hide all screenshots
+            screenshots.forEach((screenshot, index) => {
+                screenshot.classList.remove('active');
+                dots[index].classList.remove('active');
+            });
+            
+            // Show current step
+            screenshots[step].classList.add('active');
+            dots[step].classList.add('active');
+            
+            // Update progress bar
+            const progressWidth = ((step + 1) / totalSteps) * 100;
+            progressBar.style.width = progressWidth + '%';
+        }
+        
+        function nextStep() {
+            currentStep = (currentStep + 1) % totalSteps;
+            showStep(currentStep);
+        }
+        
+        // Auto-advance slides
+        setInterval(nextStep, stepDuration);
+        
+        // Manual navigation
+        dots.forEach((dot, index) => {
+            dot.addEventListener('click', () => {
+                currentStep = index;
+                showStep(currentStep);
+            });
+        });
+        
+        // Initialize
+        showStep(0);
+    </script>
+</body>
+</html>
